@@ -1,5 +1,5 @@
 console.log("welcome to tic tac toe")
-let music=new Audio("music.mp3");
+let music=new Audio("bgm.mp3");
 let audioTurn=new Audio("ting.mp3");
 let gameover=new Audio("gameover.mp3");
 let resetAudio=new Audio("reset.mp3");
@@ -15,6 +15,11 @@ const changeTurn=()=>{
 }
 
 applause.addEventListener('ended',function(){
+    this.currentTime=0;
+    this.play();
+},false);
+
+music.addEventListener('ended',function(){
     this.currentTime=0;
     this.play();
 },false);
