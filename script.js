@@ -26,27 +26,29 @@ const checkWin=()=>{
         [2,4,6,5,15,135],
     ]
     music.play();
-    wins.forEach(e=>{
+    if(!isGameOver){
+        wins.forEach(e=>{
         
-        if((boxtext[e[0]].innerText===boxtext[e[1]].innerText)&&
-        (boxtext[e[1]].innerText===boxtext[e[2]].innerText)&&
-        (boxtext[e[0]].innerText!=="")){
-            document.querySelector('.info').innerText=boxtext[e[0]].innerText+" Won"
-            isGameOver=true
-            music.pause();
-            music.currentTime=0;
-            document.querySelector('.imgbox').getElementsByTagName('img')[0].style.width='184px';
-            boxes[e[0]].style.backgroundColor='#FDA7DF';
-            boxes[e[1]].style.backgroundColor='#FDA7DF';
-            boxes[e[2]].style.backgroundColor='#FDA7DF';
-            boxtext[e[0]].style.color='#ff3838';
-            boxtext[e[1]].style.color='#ff3838';
-            boxtext[e[2]].style.color='#ff3838';
-            // document.querySelector(".line").style.width="20vw"
-            // document.querySelector(".line").style.transform=`translate(${e[3]}vw,${e[4]}vw) rotate(${e[5]}deg)`
-            gameover.play();
-        }
-    })
+            if((boxtext[e[0]].innerText===boxtext[e[1]].innerText)&&
+            (boxtext[e[1]].innerText===boxtext[e[2]].innerText)&&
+            (boxtext[e[0]].innerText!=="")){
+                document.querySelector('.info').innerText=boxtext[e[0]].innerText+" Won"
+                isGameOver=true
+                music.pause();
+                music.currentTime=0;
+                document.querySelector('.imgbox').getElementsByTagName('img')[0].style.width='184px';
+                boxes[e[0]].style.backgroundColor='#FDA7DF';
+                boxes[e[1]].style.backgroundColor='#FDA7DF';
+                boxes[e[2]].style.backgroundColor='#FDA7DF';
+                boxtext[e[0]].style.color='#ff3838';
+                boxtext[e[1]].style.color='#ff3838';
+                boxtext[e[2]].style.color='#ff3838';
+                // document.querySelector(".line").style.width="20vw"
+                // document.querySelector(".line").style.transform=`translate(${e[3]}vw,${e[4]}vw) rotate(${e[5]}deg)`
+                gameover.play();
+            }
+        })
+    }
 }
 
 // game logic
