@@ -114,6 +114,21 @@ nav ul{
     transition: width 1s ease-in-out;
 } */
 
+#my-canvas{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 100000;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+#my-canvas.active{
+    visibility: visible;
+}
+
 @media screen and (max-width:950px){
     .gameContainer{
         flex-wrap: wrap;

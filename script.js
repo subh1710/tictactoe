@@ -3,13 +3,21 @@ let music=new Audio("music.mp3");
 let audioTurn=new Audio("ting.mp3");
 let gameover=new Audio("gameover.mp3");
 let resetAudio=new Audio("reset.mp3");
+let applause=new Audio("applause.mp3");
 let turn="X"
 let isGameOver=false
+let allBoxesFilled=true;
+
 
 //function to change the turn
 const changeTurn=()=>{
     return turn==="X"?"0":"X"
 }
+
+applause.addEventListener('ended',function(){
+    this.currentTime=0;
+    this.play();
+},false);
 
 //function to check for a win
 const checkWin=()=>{
@@ -25,30 +33,59 @@ const checkWin=()=>{
         [0,4,8,5,15,45],
         [2,4,6,5,15,135],
     ]
+
+    // let boxtexts=document.querySelectorAll('.boxtext');
+    // let boxes=document.getElementsByClassName("box");
+    allBoxesFilled=true;
+    Array.from(boxtext).forEach(elem=>{
+        if(elem.innerText===''){
+            allBoxesFilled=false;
+        }
+    });
+
+    
     
     if(!isGameOver){
         music.play();
-        wins.forEach(e=>{
         
-            if((boxtext[e[0]].innerText===boxtext[e[1]].innerText)&&
-            (boxtext[e[1]].innerText===boxtext[e[2]].innerText)&&
-            (boxtext[e[0]].innerText!=="")){
-                document.querySelector('.info').innerText=boxtext[e[0]].innerText+" Won"
-                isGameOver=true
+        
+            wins.forEach(e=>{
+                if((boxtext[e[0]].innerText===boxtext[e[1]].innerText)&&
+                (boxtext[e[1]].innerText===boxtext[e[2]].innerText)&&
+                (boxtext[e[0]].innerText!=="")){
+                    document.querySelector('.info').innerText=boxtext[e[0]].innerText+" Won"
+                    isGameOver=true
+                    music.pause();
+                    music.currentTime=0;
+                    document.querySelector('.imgbox').getElementsByTagName('img')[0].src="excited.gif";
+                    document.querySelector('.imgbox').getElementsByTagName('img')[0].style.width='200px';
+                    document.querySelector('.imgbox').getElementsByTagName('img')[0].style.paddingTop='5px';
+                    boxes[e[0]].style.backgroundColor='#FDA7DF';
+                    boxes[e[1]].style.backgroundColor='#FDA7DF';
+                    boxes[e[2]].style.backgroundColor='#FDA7DF';
+                    boxtext[e[0]].style.color='#ff3838';
+                    boxtext[e[1]].style.color='#ff3838';
+                    boxtext[e[2]].style.color='#ff3838';
+                    let confe=document.querySelector('#my-canvas');
+                    confe.classList.add('active');
+                    // document.querySelector(".line").style.width="20vw"
+                    // document.querySelector(".line").style.transform=`translate(${e[3]}vw,${e[4]}vw) rotate(${e[5]}deg)`
+                    // gameover.play();
+                    applause.play();
+                }
+            })
+            if(allBoxesFilled && !isGameOver){
+                // alert('match draw')
+                document.querySelector('.info').innerText="XO DRAW"
+                document.querySelector('.imgbox').getElementsByTagName('img')[0].src="sleepingSquid.gif";
+                document.querySelector('.imgbox').getElementsByTagName('img')[0].style.width='250px';
+                document.querySelector('.imgbox').getElementsByTagName('img')[0].style.paddingTop='5px';
+                gameover.play();
+                isGameOver=true;
                 music.pause();
                 music.currentTime=0;
-                document.querySelector('.imgbox').getElementsByTagName('img')[0].style.width='184px';
-                boxes[e[0]].style.backgroundColor='#FDA7DF';
-                boxes[e[1]].style.backgroundColor='#FDA7DF';
-                boxes[e[2]].style.backgroundColor='#FDA7DF';
-                boxtext[e[0]].style.color='#ff3838';
-                boxtext[e[1]].style.color='#ff3838';
-                boxtext[e[2]].style.color='#ff3838';
-                // document.querySelector(".line").style.width="20vw"
-                // document.querySelector(".line").style.transform=`translate(${e[3]}vw,${e[4]}vw) rotate(${e[5]}deg)`
-                gameover.play();
             }
-        })
+        
     }
 }
 
@@ -71,8 +108,12 @@ Array.from(boxes).forEach(element=>{
 })
 
 reset.addEventListener('click',()=>{
+    let confe=document.querySelector('#my-canvas');
+    confe.classList.remove('active');
     music.pause();
     music.currentTime=0;
+    applause.pause();
+    applause.currentTime=0;
     resetAudio.play()
     let boxtexts=document.querySelectorAll('.boxtext');
     let boxes=document.getElementsByClassName("box");
