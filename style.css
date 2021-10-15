@@ -40,7 +40,7 @@ nav ul{
 }
 
 .box{
-    border: 2px solid #badc58 ;
+    border: 2px solid #cd84f1 ;
     font-size: 8vw;
     cursor: pointer;
     display: flex;
@@ -105,14 +105,14 @@ nav ul{
     /* justify-content: center; */
 }
 
-.line{
+/* .line{
     background-color: black;
     height: 5px;
     width: 0;
     position: absolute;
     background-color: #e056fd;
     transition: width 1s ease-in-out;
-}
+} */
 
 @media screen and (max-width:950px){
     .gameContainer{

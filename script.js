@@ -14,6 +14,7 @@ const changeTurn=()=>{
 //function to check for a win
 const checkWin=()=>{
     let boxtext=document.getElementsByClassName('boxtext');
+    let boxes=document.getElementsByClassName("box");
     let wins=[
         [0,1,2,5,5,0],
         [3,4,5,5,15,0],
@@ -35,8 +36,14 @@ const checkWin=()=>{
             music.pause();
             music.currentTime=0;
             document.querySelector('.imgbox').getElementsByTagName('img')[0].style.width='184px';
-            document.querySelector(".line").style.width="20vw"
-            document.querySelector(".line").style.transform=`translate(${e[3]}vw,${e[4]}vw) rotate(${e[5]}deg)`
+            boxes[e[0]].style.backgroundColor='#FDA7DF';
+            boxes[e[1]].style.backgroundColor='#FDA7DF';
+            boxes[e[2]].style.backgroundColor='#FDA7DF';
+            boxtext[e[0]].style.color='#ff3838';
+            boxtext[e[1]].style.color='#ff3838';
+            boxtext[e[2]].style.color='#ff3838';
+            // document.querySelector(".line").style.width="20vw"
+            // document.querySelector(".line").style.transform=`translate(${e[3]}vw,${e[4]}vw) rotate(${e[5]}deg)`
             gameover.play();
         }
     })
@@ -65,12 +72,18 @@ reset.addEventListener('click',()=>{
     music.currentTime=0;
     resetAudio.play()
     let boxtexts=document.querySelectorAll('.boxtext');
+    let boxes=document.getElementsByClassName("box");
     Array.from(boxtexts).forEach(elem=>{
         elem.innerText="";
+        elem.style.color='';
+        
     });
+    Array.from(boxes).forEach(element=>{
+        element.style.backgroundColor='';
+    })
     turn="X";
     isGameOver=false;
-    document.querySelector(".line").style.width="0vw"
+    // document.querySelector(".line").style.width="0vw"
     document.getElementsByClassName("info")[0].innerText="Turn for "+turn;
     document.querySelector('.imgbox').getElementsByTagName('img')[0].style.width='0px'
 })
