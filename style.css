@@ -2,12 +2,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Festive&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Baloo+Tammudu+2&family=Festive&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Baloo+Tammudu+2&family=Do+Hyeon&family=Festive&display=swap');
-*{
+* {
     margin: 0;
     padding: 0;
 }
 
-nav{
+nav {
     background-color: #22a6b3;
     color: white;
     height: 90px;
@@ -20,79 +20,84 @@ nav{
     font-weight: bolder;
 }
 
-nav ul{
+nav ul {
     list-style-type: none;
 }
 
-.gameContainer{
+.gameContainer {
     display: flex;
     justify-content: center;
     margin-top: 50px;
 }
 
-.container{
+.container {
     display: grid;
-    grid-template-rows: repeat(3,10vw);
-    grid-template-columns: repeat(3,10vw);
+    grid-template-rows: repeat(3, 10vw);
+    grid-template-columns: repeat(3, 10vw);
     font-family: 'Anton', sans-serif;
     position: relative;
     /* background-color: #badc58; */
 }
 
-.box{
-    border: 2px solid #cd84f1 ;
+.box {
+    border: 2px solid #cd84f1;
     font-size: 8vw;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    color:#006266 ;
+    color: #006266;
     font-family: 'Do Hyeon', sans-serif;
 }
 
-.box:hover{
-    background-color:#dff9fb;
-    
+.box:hover {
+    background-color: #dff9fb;
 }
 
-.info{
+.info {
     font-size: 25px;
     font-family: 'Do Hyeon', sans-serif;
     font-weight: bolder;
 }
-.gameInfo{
+
+.gameInfo {
     padding: 34px;
     font-family: 'Baloo Tammudu 2', cursive;
 }
 
-.gameInfo h1{
-   font-size: 2.5rem;
-   color: #22a6b3;
+.gameInfo h1 {
+    font-size: 2.5rem;
+    color: #22a6b3;
 }
 
+.birthdayWish {
+    font-size: 25px;
+    font-family: 'Do Hyeon', sans-serif;
+    font-weight: bolder;
+}
 
-.imgbox img{
+.imgbox img {
     width: 0;
     transition: width 1s ease-in-out;
 }
 
-.br-0{
+.br-0 {
     border-right: 0;
 }
 
-.bl-0{
+.bl-0 {
     border-left: 0;
 }
 
-.bt-0{
+.bt-0 {
     border-top: 0;
 }
 
-.bb-0{
+.bb-0 {
     border-bottom: 0;
 }
 
-#reset{
+#reset {
     margin: 0 23px;
     padding: 5px 20px 0px 20px;
     background: #0a3d62;
@@ -105,6 +110,7 @@ nav ul{
     /* justify-content: center; */
 }
 
+
 /* .line{
     background-color: black;
     height: 5px;
@@ -114,7 +120,7 @@ nav ul{
     transition: width 1s ease-in-out;
 } */
 
-#my-canvas{
+#my-canvas {
     position: fixed;
     top: 0;
     left: 0;
@@ -125,22 +131,22 @@ nav ul{
     pointer-events: none;
 }
 
-#my-canvas.active{
+#my-canvas.active {
     visibility: visible;
 }
 
-@media screen and (max-width:950px){
-    .gameContainer{
+@media screen and (max-width:950px) {
+    .gameContainer {
         flex-wrap: wrap;
     }
-    .gameInfo{
+    .gameInfo {
         margin-top: 34px;
     }
-    .gameInfo h1{
+    .gameInfo h1 {
         font-size: 1.5rem;
     }
-    .container{
-        grid-template-rows: repeat(3,20vw);
-        grid-template-columns: repeat(3,20vw);
+    .container {
+        grid-template-rows: repeat(3, 20vw);
+        grid-template-columns: repeat(3, 20vw);
     }
 }

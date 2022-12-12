@@ -18,7 +18,7 @@
         </ul>
     </nav>
     <div class="gameContainer">
-        
+
         <div class="container">
             <!-- <div class="line"></div> -->
             <div class="box bt-0 bl-0">
@@ -50,10 +50,10 @@
             </div>
         </div>
         <div class="gameInfo">
-            <h1>Welcome to Tic Tac Toe </h1>           
+            <h1 class="birthdayWish">Welcome to Tic Tac Toe </h1>
             <div>
-            <span class="info">Turn for X</span>
-            <button id="reset">Reset</button>
+                <span class="info">Turn for X</span>
+                <button id="reset">Reset</button>
             </div>
             <div class="imgbox">
                 <img src="" alt="">
@@ -65,7 +65,13 @@
     <canvas id="my-canvas"></canvas>
     <script src="index.min.js"></script>
     <script>
-        var confettiSettings = { target: 'my-canvas', rotate:true, size:2.1, max:180, clock:35 };
+        var confettiSettings = {
+            target: 'my-canvas',
+            rotate: true,
+            size: 2.1,
+            max: 180,
+            clock: 35
+        };
         var confetti = new ConfettiGenerator(confettiSettings);
         confetti.render();
     </script>
