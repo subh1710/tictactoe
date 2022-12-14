@@ -3,7 +3,7 @@ let music = new Audio("bgm.mp3");
 let audioTurn = new Audio("ting.mp3");
 let gameover = new Audio("gameover.mp3");
 let resetAudio = new Audio("reset.mp3");
-let applause = new Audio("applause.mp3");
+let applause = new Audio("happyBirthday.mp3");
 let turn = "X"
 let isGameOver = false
 let allBoxesFilled = true;
@@ -59,11 +59,11 @@ const checkWin = () => {
                 (boxtext[e[1]].innerText === boxtext[e[2]].innerText) &&
                 (boxtext[e[0]].innerText !== "")) {
                 document.querySelector('.info').innerText = boxtext[e[0]].innerText + " Won"
-                    // document.getElementsByClassName("birthdayWish")[0].innerText = "Many many happy returns of the day"
+                document.getElementsByClassName("birthdayWish")[0].innerText = "Many many happy returns of the day"
                 isGameOver = true
                 music.pause();
                 music.currentTime = 0;
-                document.querySelector('.imgbox').getElementsByTagName('img')[0].src = "excited.gif";
+                document.querySelector('.imgbox').getElementsByTagName('img')[0].src = "BirhdayCakeShamik.gif";
                 document.querySelector('.imgbox').getElementsByTagName('img')[0].style.width = '300px';
                 document.querySelector('.imgbox').getElementsByTagName('img')[0].style.paddingTop = '5px';
                 boxes[e[0]].style.backgroundColor = '#FDA7DF';
@@ -136,5 +136,5 @@ reset.addEventListener('click', () => {
     // document.querySelector(".line").style.width="0vw"
     document.getElementsByClassName("info")[0].innerText = "Turn for " + turn;
     document.querySelector('.imgbox').getElementsByTagName('img')[0].style.width = '0px'
-        // document.getElementsByClassName("birthdayWish")[0].innerText = "Welcome to Tic Tac Toe"
+    document.getElementsByClassName("birthdayWish")[0].innerText = "Welcome to Tic Tac Toe"
 })
