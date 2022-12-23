@@ -63,8 +63,8 @@ const checkWin = () => {
                 isGameOver = true
                 music.pause();
                 music.currentTime = 0;
-                document.querySelector('.imgbox').getElementsByTagName('img')[0].src = "BirhdayCakeAnu.gif";
-                document.querySelector('.imgbox').getElementsByTagName('img')[0].style.width = '300px';
+                document.querySelector('.imgbox').getElementsByTagName('img')[0].src = "BirthdayArchana.gif";
+                document.querySelector('.imgbox').getElementsByTagName('img')[0].style.width = '320px';
                 document.querySelector('.imgbox').getElementsByTagName('img')[0].style.paddingTop = '5px';
                 boxes[e[0]].style.backgroundColor = '#FDA7DF';
                 boxes[e[1]].style.backgroundColor = '#FDA7DF';
